@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Where "j" the title
+INPUT="$(echo $@)";
+echo $INPUT;
+TITLE="${INPUT// /-}";
+FILE="$(dt)_$TITLE.md";
+DIR="$HOME/.clios/usr/journal";
+vim "$DIR/$FILE"
