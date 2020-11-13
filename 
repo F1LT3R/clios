@@ -1,0 +1,30 @@
+#!/bin/bash
+
+# CLIOS Root DIR
+CLIOS="$(dirname $( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )../)"
+
+DOTFILES=$CLIOS/install/dotfiles.csv
+
+FILES=()
+
+# Read Dotfiles into List
+echo $DOTFILES
+while read FILENAME; do
+FILES+=($FILENAME)
+done < $DOTFILES
+
+# Replace File /w Choice
+for FILE in "${FILES[@]}"
+do
+	echo $FILE
+	echo -n "Overwrite ~/$FILE (y/n)? "
+	read answer
+	if [ "$answer" != "${answer#[Yy]}" ] ;then
+		echo "~/$FILE overwritten."
+		ln -sf $CLIOS/dot/$FILE $HOME/$FILE
+	else
+		echo "~/$FILE skipped"
+	fi
+done
+
+

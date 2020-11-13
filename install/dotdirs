@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# CLIOS Root DIR
+CLIOS="$(dirname $( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )../)"
+
+DOTDIRS=$CLIOS/install/dotdirs.csv
+
+DIRS=()
+
+# Read Dotdirs into List
+echo $DOTDIRS
+while read DIRNAME; do
+DIRS+=($DIRNAME)
+done < $DOTDIRS
+
+# Replace File /w Choice
+for DIR in "${DIRS[@]}"
+do
+	echo $DIR
+	echo -n "Overwrite ~/$DIR (y/n)? "
+	read answer
+	if [ "$answer" != "${answer#[Yy]}" ] ;then
+		echo "~/$DIR overwritten."
+		ln -sf $CLIOS/dot/$DIR $HOME/$DIR
+	else
+		echo "~/$DIR skipped"
+	fi
+done

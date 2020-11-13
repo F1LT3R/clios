@@ -68,9 +68,14 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(fzf)
 
 source $ZSH/oh-my-zsh.sh
+export FZF_BASE="$HOME/.fzf"
+
+
+export FZF_DEFAULT_COMMAND='find .'
+
 
 # User configuration
 
@@ -102,4 +107,5 @@ PATH=~/.npm-global/bin:~/Bin:$PATH
 
 
 alias soundon='pacmd set-card-profile device_name a2dp_sink'
+#export FZF_BASE="$HOME/.fzf"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

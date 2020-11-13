@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Get dotfiles DIR relative to this script
+CLIOS="$(dirname $( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )../)/.clios"
+
+INSTALLERS=$DIR/
+while read line; do
+# reading each line
+echo $line
+done < $filename
+
+FILE=".zshrc"
+read -p "Overwrite ~/$FILE ? " -n 1 -r
+echo    # (optional) move to a new line
+if [[ ! $REPLY =~ ^[Yy]$ ]]
+then
+	echo "~/$FILE overwritten."
+	ln -sf $DIR/.clios/dot/.zshrc $HOME/.zshrc
+    exit 1
+fi
+
