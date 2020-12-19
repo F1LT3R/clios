@@ -109,3 +109,5 @@ PATH=~/.npm-global/bin:~/Bin:$PATH
 alias soundon='pacmd set-card-profile device_name a2dp_sink'
 #export FZF_BASE="$HOME/.fzf"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export GOPATH=~/go
+export PATH=/home/f1lt3r/go/bin:/usr/local/go/bin:/bin:/usr/local/go/bin:/home/f1lt3r/.npm-global/bin:/home/f1lt3r/Bin:/home/f1lt3r/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/f1lt3r/.fzf/bin
